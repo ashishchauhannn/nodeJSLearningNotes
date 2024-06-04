@@ -24,68 +24,22 @@ const { size } = require('lodash')
 const app = express()
 const port = 3000
 const db = require('./db');
-const Class = require('./models/class')
+
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());
 
 
 
-
+// get method ex-
 app.get('/', (req, res) => {
     res.send('Hello World! this is express!')
 })
-// app.get('/ex', (req, res) => {
-//     res.send('Hello World! this express and its sucks! JOking')
-// })
-// app.get('/node', (req, res) => {
-//     var nd = {
-//         name: "hello",
-//         size: "does not metter!",
-//         age: "45AD"
-//     }
-
-//     res.send(nd)
-
-// })
-
-//POST method....
-
-// const data = req.body
-// const newPerson = newPerson(data);
-
-// newPerson.save((error, Person) => {
-//     if (error) {
-//         console.log("err.....", error)
-//         res.status(500).json({ error: 'internal' })
-//     }
-//     else {
-//         console.log("saved...")
-//         res.status(200).json(savedPerson);
-//     }
-// })
-
-//POST method for person API....
-
-
-//GET method 
-
-
-
-
-// post method for class
-
-
-
-
-
 
 
 //import routers
-
 const personroutes = require('./routes/personroutes');
 const classroutes = require('./routes/classroutes');
 app.use('/person', personroutes)
-
 app.use('/class', classroutes)
 
 
@@ -95,4 +49,4 @@ app.listen(3000, () => {
 })
 
 
-
+//comment
