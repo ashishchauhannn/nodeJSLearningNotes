@@ -1,0 +1,6 @@
+nodemon server.js // nodemon server start
+ctrl+c close the server
+
+node server.js //run file
+
+const mongoURL = "mongodb://0.0.0.0:27017/mydb" // use always this port for connection
