@@ -25,6 +25,8 @@ const app = express()
 const port = 3000
 const db = require('./db');
 
+require('dotenv').config();
+
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());
 
@@ -43,8 +45,9 @@ app.use('/person', personroutes)
 app.use('/class', classroutes)
 
 
-
-app.listen(3000, () => {
+//online server shift
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
     console.log("server running.....")
 })
 
