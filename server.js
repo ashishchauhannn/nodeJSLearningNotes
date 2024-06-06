@@ -43,7 +43,7 @@ const localAuthMiddleware = passport.authenticate('local', { session: false })
 
 
 // get method ex-
-app.get('/', localAuthMiddleware, (req, res) => {
+app.get('/', (req, res) => {
     res.send('Hello World! this is express!')
 })
 
@@ -63,4 +63,4 @@ app.listen(PORT, () => {
 })
 
 
-//comment
+//  Passporet and Authorization completed.....
