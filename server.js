@@ -22,18 +22,28 @@
 const express = require('express')
 const { size } = require('lodash')
 const app = express()
-const port = 3000
+// const port = 3000
 const db = require('./db');
-
 require('dotenv').config();
+const passport = require('./auth')
+const PORT = process.env.PORT || 3000;
 
+// body parsher
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());
 
 
+//authentication
+
+
+
+app.use(passport.initialize());
+
+const localAuthMiddleware = passport.authenticate('local', { session: false })
+
 
 // get method ex-
-app.get('/', (req, res) => {
+app.get('/', localAuthMiddleware, (req, res) => {
     res.send('Hello World! this is express!')
 })
 
@@ -41,12 +51,13 @@ app.get('/', (req, res) => {
 //import routers
 const personroutes = require('./routes/personroutes');
 const classroutes = require('./routes/classroutes');
-app.use('/person', personroutes)
+
+app.use('/person', localAuthMiddleware, personroutes)
 app.use('/class', classroutes)
 
 
 //online server shift
-const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
     console.log("server running.....")
 })
