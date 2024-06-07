@@ -4,3 +4,45 @@ ctrl+c close the server
 node server.js //run file
 
 const mongoURL = "mongodb://0.0.0.0:27017/mydb" // use always this port for connection
+
+
+{
+    "name": "Aashish",
+    "age":24,
+    "work":"dir",
+    "email":"ash@gmail",
+    "address":"xyz",
+    "username":"ashish",
+    "password":"123456"
+
+}
+// 
+{
+    "teacher": "sneha",
+    "student": "meenu",
+    "Courses": "py",
+    "rollno": 211
+}
+// git commands
+
+git push  
+git status
+git add.
+git commit -m "authentication completed"
+
+
+
+
+
+
+
+// packages used in this project
+
+ "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^8.4.0",
+    "nodemon": "^3.1.2"
+
+     for  install -> npm i <package name>

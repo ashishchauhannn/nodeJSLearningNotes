@@ -52,7 +52,7 @@ app.get('/', (req, res) => {
 const personroutes = require('./routes/personroutes');
 const classroutes = require('./routes/classroutes');
 
-app.use('/person', localAuthMiddleware, personroutes)
+app.use('/person', personroutes)
 app.use('/class', classroutes)
 
 
