@@ -25,10 +25,11 @@ const mongoURL = "mongodb://0.0.0.0:27017/mydb" // use always this port for conn
 }
 // git commands
 
-git push  
-git status
-git add.
-git commit -m "authentication completed"
+git push  -- push to github
+git status -- check the status 
+git add . add files
+git commit -m "authentication completed" --add comments 
+git reset --- Undoes changes
 
 
 
