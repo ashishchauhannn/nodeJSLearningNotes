@@ -62,6 +62,25 @@ router.post('/login', async (req, res) => {
         res.status(500).json({ error: 'internal server error' })
     }
 });
+// profile route
+
+router.get('/profile', jwtMiddelWare, async (req, res) => {
+    try {
+        const userData = req.user;
+        console.log("user data:", userData);
+
+        const userId = userData.id;
+        const user = await Person.findById(userId)
+        res.status(200).json({ user });  // use to send req
+
+
+    } catch (error) {
+
+        console.error(error)
+        res.status(500).json({ error: 'internal server error' })
+
+    }
+})
 
 
 
@@ -69,7 +88,7 @@ router.post('/login', async (req, res) => {
 
 //GET method for person
 
-router.get('/', async (req, res) => {
+router.get('/', jwtMiddelWare, async (req, res) => {
 
     try {
         const data = await Person.find();

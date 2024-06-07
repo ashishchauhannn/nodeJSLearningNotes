@@ -52,6 +52,8 @@ app.get('/', (req, res) => {
 const personroutes = require('./routes/personroutes');
 const classroutes = require('./routes/classroutes');
 
+
+//use localAuth for authentication
 app.use('/person', personroutes)
 app.use('/class', classroutes)
 
@@ -59,7 +61,7 @@ app.use('/class', classroutes)
 //online server shift
 
 app.listen(PORT, () => {
-    console.log("server running.....")
+    console.log("server running..")
 })
 
 

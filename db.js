@@ -16,13 +16,13 @@ mongoose.connect(mongoURL,
 )
 const db = mongoose.connection;
 db.on('connected', () => {
-    console.log("connected.....");
+    console.log("connected to the mongodb");
 });
 db.on('error', (err) => {
     console.log("there is an error", err);
 });
 db.on('disconnected', () => {
-    console.log("disconnected......");
+    console.log("disconnected");
 });
 
 module.exports = db;
