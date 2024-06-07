@@ -38,28 +38,30 @@ router.post('/signup', async (req, res) => {
 })
 // login route
 
-// router.post('/login', async (req, res) => {
-//     try {
-//         //extrct user name and password
-//         const { username, password } = req.body;
-//         // find username by username
-//         const user = await Person.findOne({ username: username });
-//         if (!user || !(await user.comparePassword(password))) {
-//             return res.sendStatus(401).json({ error: 'invalid username or password' })
-//         }
-//         const payload = {
-//             id: user.id,
-// username: user.username
-//         }
-//         const token = generateToken(payload);
+router.post('/login', async (req, res) => {
+    try {
+        //extrct user name and password
+        const { username, password } = req.body;
+        // find username by username
+        const user = await Person.findOne({ username: username });
 
-//         res.json({ token })
-//     }
-//     catch (err) {
-//         console.error(err)
-//         res.status(500).json({ error: 'internal server error' })
-//     }
-// });
+        // if user cant find or exist
+        if (!user || !(await user.comparePassword(password))) {
+            return res.status(401).json({ error: 'invalid username or password' })
+        }
+        const payload = {
+            id: user.id,
+            username: user.username
+        }
+        const token = generateToken(payload);
+
+        res.json({ token })
+    }
+    catch (err) {
+        console.error(err)
+        res.status(500).json({ error: 'internal server error' })
+    }
+});
 
 
 
